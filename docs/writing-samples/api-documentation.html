@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation Sample</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      margin: 0;
+      padding: 40px 24px;
+      color: #171a16;
+      background: #f5f6f2;
+    }
+    .doc {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #dcdfd6;
+      border-radius: 8px;
+      padding: 32px;
+    }
+    h1, h2 { color: #171a16; }
+    h1 { font-size: 32px; margin-bottom: 16px; }
+    h2 { font-size: 22px; margin-top: 28px; }
+    p, li { font-size: 15px; }
+    code {
+      background: #eef0ea;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    pre {
+      background: #eef0ea;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <article class="doc">
+    <h1>API Documentation Sample</h1>
+    <p>This is a placeholder document for your writing sample library. Replace this content with your actual API documentation.</p>
+
+    <h2>Overview</h2>
+    <p>The API allows users to create, retrieve, update, and delete records through secure HTTP requests. Use the endpoints listed below to integrate your system with the platform.</p>
+
+    <h2>Authentication</h2>
+    <p>Every request requires a valid API key passed in the request header.</p>
+    <pre><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+
+    <h2>Endpoint Example</h2>
+    <pre><code>GET /v1/customers/{id}</code></pre>
+
+    <p>Returns a customer record including the account ID, status, and metadata.</p>
+
+    <h2>Response Format</h2>
+    <ul>
+      <li>Status code: 200 for success</li>
+      <li>Content-Type: application/json</li>
+      <li>Response includes id, name, status, createdAt</li>
+    </ul>
+  </article>
+</body>
+</html>
