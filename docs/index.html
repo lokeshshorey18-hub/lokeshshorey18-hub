@@ -571,9 +571,10 @@
       <summary>Writing Samples</summary>
       <div class="work-items">
 
-        <button class="work-item" type="button" onclick="openDocument('writing-samples/Release_Notes_Restructuring.html')">
-  <span class="work-item-title">Release Notes Restructuring</span>
-  <span class="work-item-type">READ ↗</span>
+        <button class="work-item" type="button" onclick="openDocument('release-notes-restructuring')">
+            <span class="work-item-title">Release Notes Restructuring</span>
+            <span class="work-item-type">READ ↗</span>
+          </button>
           </button>
 
         <button class="work-item" type="button" onclick="openDocument('Documentation Modernization Approach')">
@@ -990,7 +991,13 @@
      to be exposed to visitors.
      ============================================================ */
 
-  const documents = {
+  const documents = 
+  {
+  "release-notes-restructuring": {
+    title: "Release Notes Restructuring",
+    file: "writing-samples/Release_Notes_Restructuring.html"
+  },
+  {
     "api-documentation": {
       title: "API Documentation Sample",
       file: "writing-samples/api-documentation.html"
