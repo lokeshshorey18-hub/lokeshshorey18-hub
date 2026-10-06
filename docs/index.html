@@ -1027,10 +1027,61 @@
 
   let currentDocument = null;
 
-  async function openDocument(documentId){
-    const doc = documents[documentId];
-    if (!doc) return;
+  function openDocument(docRef) {
+  const ref = String(docRef || '').trim();
 
+  let doc = null;
+
+  if (documents && documents[ref]) {
+    doc = documents[ref];
+  } else {
+    let filePath = ref;
+
+    if (!filePath.endsWith('.html')) {
+      filePath = filePath + '.html';
+    }
+
+    if (!filePath.includes('/')) {
+      filePath = 'writing-samples/' + filePath;
+    }
+
+    const titleFromFile = filePath
+      .split('/')
+      .pop()
+      .replace(/\.html?$/i, '')
+      .replace(/[-_]/g, ' ');
+
+    doc = {
+      title: titleFromFile,
+      file: filePath
+    };
+  }
+
+  const modal = document.getElementById('documentModal');
+  const titleEl = document.getElementById('documentModalTitle');
+  const contentEl = document.getElementById('documentContent');
+
+  titleEl.textContent = doc.title;
+  modal.classList.add('active');
+  contentEl.innerHTML = '<p>Loading...</p>';
+
+  fetch(doc.file)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to load: ' + doc.file);
+      }
+      return response.text();
+    })
+    .then(html => {
+      contentEl.innerHTML = html;
+    })
+    .catch(error => {
+      console.error(error);
+      contentEl.innerHTML =
+        '<p>Unable to load the document.</p>' +
+        '<p>Checked path: ' + doc.file + '</p>';
+    });
+}
     currentDocument = doc;
     document.getElementById("documentModalTitle").textContent = doc.title;
 
